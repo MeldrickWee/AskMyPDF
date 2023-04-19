@@ -73,7 +73,7 @@ selected_option = st.selectbox(
 if selected_option == "Enter a question":
     custom_question_expander = st.expander("Enter your custom question here:")
     custom_question = custom_question_expander.text_input(
-        "", key="custom_question")
+        "...", key="custom_question", label_visibility="collapsed")
 else:
     custom_question = ""
 
