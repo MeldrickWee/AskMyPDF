@@ -14,13 +14,6 @@ from langchain.prompts.chat import (
 )
 from langchain.vectorstores import FAISS
 
-# # User inputs--------------------------------
-# # Allow user input for key
-# OPENAI_API_KEY = input("Enter your OpenAI API key: ")
-# # Allow user input for question
-# query = input("Enter your question: ")
-
-
 app = dash.Dash(__name__)
 
 app.layout = dbc.Container(
