@@ -12,6 +12,8 @@ from langchain.vectorstores import FAISS
 
 # TODO: Add more context to the question template
 # TODO: Type hinting and docstrings
+
+
 def process_query(api_key, question):
     path = "../data/vector_data/"
     if os.path.exists(path):
