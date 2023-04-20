@@ -2,6 +2,8 @@ import streamlit as st
 
 from query_processor import process_query
 
+# TODO: Add memory functionality to the app
+
 # Title 
 st.markdown("<h1 style='text-align: center; font-size: 30px;'>Ask My PDF:<br />Question Answering for AI Practitioner Handbook</h1><br /><br /><br />", unsafe_allow_html=True)
 
@@ -9,7 +11,13 @@ st.markdown("<h1 style='text-align: center; font-size: 30px;'>Ask My PDF:<br />Q
 api_key = st.text_input("Enter your OpenAI API key:", type="password")
 
 # API key additional user info
-st.markdown("<p style='font-size: 12px;'>This API key is never saved. You can get your API key from <a href='https://platform.openai.com/account/api-keys'>here</a>.</p><br /><br /><br />", unsafe_allow_html=True)
+st.markdown("<p style='font-size: 12px;'>This API key is never saved. You can get your API key from <a href='https://platform.openai.com/account/api-keys'>here</a>.</p><br />", unsafe_allow_html=True)
+
+# Add a slider for the temperature value
+temperature = st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+
+# Addtional info for temperature
+st.markdown("<p style='font-size: 12px;'>From most deterministic to most creative reply.</p><br />", unsafe_allow_html=True)
 
 # dropdown options
 dropdown_options = [
@@ -44,7 +52,7 @@ if st.button("Submit"):
 
         if question:
             path = "data/vector_data/"
-            answer = process_query(api_key, question, path)
+            answer = process_query(api_key=api_key, question=question, path=path, temp_val=temperature)
             st.write(answer)
     else:
         st.write("Please provide your API key.")
