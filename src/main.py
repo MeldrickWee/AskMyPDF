@@ -4,7 +4,11 @@ from query_processor import process_query
 
 # TODO: Add memory functionality to the app
 
-# Title 
+# Check if the chat_history state is initialized
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+# Title
 st.markdown("<h1 style='text-align: center; font-size: 30px;'>Ask My PDF:<br />Question Answering for AI Practitioner Handbook</h1><br /><br /><br />", unsafe_allow_html=True)
 
 # API key input
@@ -18,6 +22,9 @@ temperature = st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.0,
 
 # Addtional info for temperature
 st.markdown("<p style='font-size: 12px;'>From most deterministic to most creative reply.</p><br />", unsafe_allow_html=True)
+
+# Add the memory checkbox
+memory = st.radio("Remember chat history (conversation memory)?", ["Yes", "No"])
 
 # dropdown options
 dropdown_options = [
@@ -52,8 +59,9 @@ if st.button("Submit"):
 
         if question:
             path = "data/vector_data/"
-            answer = process_query(api_key=api_key, question=question, path=path, temp_val=temperature)
+            answer = process_query(api_key=api_key, question=question, path=path, temp_val=temperature, memory=memory, chat_history=st.session_state.chat_history)
             st.write(answer)
+
     else:
         st.write("Please provide your API key.")
 
