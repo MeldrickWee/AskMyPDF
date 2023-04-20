@@ -57,11 +57,11 @@ def process_query(api_key, question, path, temp_val, memory):
     else:
         # Remembers the context of the previous conversation
 
-        memory_template = """Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
-        You can assume the question to be about the most recent state of the AI Practioner Handbook.
-        Chat History:
-        {chat_history}
-        Follow Up Input: {question}
+        memory_template = """Given the following conversation and a follow up question, rephrase the follow up\
+        question to be a standalone question.\
+        You can assume the question to be about the most recent state of the AI Practioner Handbook.\
+        Chat History:{chat_history}\
+        Follow Up Input: {question}\
         Standalone question:"""
 
         CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(memory_template)
