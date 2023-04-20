@@ -12,11 +12,10 @@ from langchain.prompts.chat import (
 from langchain.prompts.prompt import PromptTemplate
 from langchain.vectorstores import FAISS
 
-
-# TODO: Add memory to the conversation
-# TODO: Add more context to the question template
+# TODO: Clean up the display of the answer, chat history, source documents on the streamlit app
 # TODO: Type hinting and docstrings
-def process_query(api_key, question, path, temp_val, memory):
+
+def process_query(api_key, question, path, temp_val, memory, chat_history):
     if os.path.exists(path):
         vector_store = FAISS.load_local(
             path, OpenAIEmbeddings(openai_api_key=api_key)
@@ -24,7 +23,7 @@ def process_query(api_key, question, path, temp_val, memory):
     else:
         return "Upload index.faiss and index.pkl files to {path} directory first"
 
-    if not memory:
+    if memory == "No":
         # Does not remember the context of the previous conversation
         system_template = """Use the following pieces of context to answer the users question.\
         No matter what the question is, you should always answer it in the context of the AI Practitioner Handbook.\
@@ -41,7 +40,7 @@ def process_query(api_key, question, path, temp_val, memory):
         prompt = ChatPromptTemplate.from_messages(messages)
 
         llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=temp_val, openai_api_key=api_key)
-        
+
         chain_type_kwargs = {"prompt": prompt}
 
         chain = RetrievalQAWithSourcesChain.from_chain_type(
@@ -55,28 +54,30 @@ def process_query(api_key, question, path, temp_val, memory):
         result = chain(question)
 
     else:
-        # Remembers the context of the previous conversation
-
-        memory_template = """Given the following conversation and a follow up question, rephrase the follow up\
-        question to be a standalone question.\
-        You can assume the question to be about the most recent state of the AI Practioner Handbook.\
+        # Remembers the context of the previous conversation, memory == "Yes"
+        memory_template = """Given the following chat history and a follow up question, rephrase the\
+        follow up question to be a standalone question.\
+        You can assume the question to be about the AI Practioner Handbook.\
+        If you don't know the answer, just say that "I don't know", don't try to make up an answer.\
+        If the question is not related to the AI Practitioner Handbook, just say that "I don't know".\
         Chat History:{chat_history}\
         Follow Up Input: {question}\
         Standalone question:"""
 
         CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(memory_template)
-        
-        llm = OpenAI(model_name="gpt-3.5-turbo", temperature=temp_val, openai_api_key=api_key)
+
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=temp_val, openai_api_key=api_key)
 
         chain = ConversationalRetrievalChain.from_llm(
             llm=llm,
             retriever=vector_store.as_retriever(),
             chain_type="stuff",
             return_source_documents=True,
-            condense_question_prompt=CONDENSE_QUESTION_PROMPT,
+            condense_question_prompt=CONDENSE_QUESTION_PROMPT
         )
 
-        # Initialize the chat history
-        chat_history = []
+        result = chain({"question": question, "chat_history": chat_history})
+
+        chat_history.append((question, result["answer"]))
 
     return result
