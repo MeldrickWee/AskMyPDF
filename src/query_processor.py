@@ -1,9 +1,9 @@
 import os
+from typing import Optional
 
 from langchain.chains import ConversationalRetrievalChain, RetrievalQAWithSourcesChain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.llms import OpenAI
 from langchain.prompts.chat import (
     ChatPromptTemplate,
     HumanMessagePromptTemplate,
@@ -12,10 +12,35 @@ from langchain.prompts.chat import (
 from langchain.prompts.prompt import PromptTemplate
 from langchain.vectorstores import FAISS
 
-# TODO: Clean up the display of the answer, chat history, source documents on the streamlit app
-# TODO: Type hinting and docstrings
 
-def process_query(api_key, question, path, temp_val, memory, chat_history):
+def process_query(
+        api_key:str, 
+        question:str, 
+        path:str, 
+        temp_val:float, 
+        memory:str, 
+        chat_history:Optional[str]=None) -> dict:
+    """
+    This function processes the user's question by feeding it to the LLM and returns the result.
+    The result is a dictionary containing an answer to the question, source documents (evidence), 
+    and chat history (if memory is activated).
+    The LLM used is OpenAI's GPT-3.5-turbo model. The temperature value affects how "deterministic" 
+    or "creative" the model replies are. The higher the temperature value, the more "creative" the model is.
+
+    Args:
+
+        api_key (str): OpenAI API key
+        question (str): User's question
+        path (str): Path to the vector store
+        temp_val (float): Temperature value
+        memory (str): Whether to remember the context of the previous conversation
+        chat_history (Optional[str], optional): Chat history. Defaults to None.
+
+    Returns:
+
+        dict: A dictionary containing an answer to the question, source documents (evidence),
+        and chat history (if memory is activated).
+    """
     if os.path.exists(path):
         vector_store = FAISS.load_local(
             path, OpenAIEmbeddings(openai_api_key=api_key)
@@ -57,7 +82,8 @@ def process_query(api_key, question, path, temp_val, memory, chat_history):
         # Remembers the context of the previous conversation, memory == "Yes"
         memory_template = """Given the following chat history and a follow up question, rephrase the\
         follow up question to be a standalone question.\
-        You can assume the question to be about the AI Practioner Handbook.\
+        You can assume the question to be in the context of the AI Practioner Handbook.\
+        The follow up question may or may not always be about the chat history.\
         If you don't know the answer, just say that "I don't know", don't try to make up an answer.\
         If the question is not related to the AI Practitioner Handbook, just say that "I don't know".\
         Chat History:{chat_history}\
