@@ -84,3 +84,6 @@ if st.button("Submit"):
 
     else:
         st.write("Please provide your API key.")
+
+# To run the app, run the following command in the terminal:
+# streamlit run src/main.py
