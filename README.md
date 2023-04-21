@@ -25,7 +25,7 @@ the LLM replies "I don't know".
 
 ## Features
 
-- Input for OpenAI API key which is never saved for security reasons
+- Input for your OpenAI API key (never saved for security reasons)
 - Customizable temperature value for controlling randomness in AI-generated responses
 - Option to remember chat history for context-aware responses
 - Predefined questions available in a dropdown menu
@@ -90,7 +90,7 @@ Choose a question from the dropdown menu or type a custom question into the inpu
 
 ### 7. View the AI-generated answer
 
-The answer to your question will be displayed in the "Answer" tab. The evidence sources that were referred to by the AI before
+The answer to your question will be displayed in the "Answer" tab. The source evidence that are referred to by the AI before
 answering are displayed in the "Source" tab. If you have selected "Yes" for chat history, the previous conversations between you and
 the AI that were used to generate context-aware answers are displayed in the "Memory" tab.
 
