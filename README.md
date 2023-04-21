@@ -14,14 +14,14 @@ This project was built in Python 3 with LangChain and deployed with Streamlit.
 The AI Practitioner Handbook was created by AI Engineers at AI Singapore.
 
 The AI Practitioner Handbook was first converted from a PDF file into embeddings with OpenAIEmbeddings (OpenAI), 
-which cost approximately $0.077 for 91 pages of text content. Using FAISS (Facebook), the embeddings are saved as a vector store for 
-efficient similaritY search.
+which cost approximately $0.077 for 91 pages of text content. Using FAISS (Facebook), the embeddings were saved as a vector store for 
+efficient similarity search.
 
 The underlying large language model (LLM) implemented for the question and answer task is ChatGPT 3.5 Turbo (OpenAI). 
 During question and answering, the LLM is able to answer user questions in context of the AI Practitioner Handbook.
-Through iterative experimentations to tune the prompt templates, the LLM does not hallucinate. It generates answers
+By iteratively experimenting with tuning the prompt templates, the LLM does not hallucinate when answering. It generates answers
 only when it has the proper sources found from the book. When questions asked are not in the context of the book, 
-the LLM replies "I don't know".
+the LLM replies "I don't know" rather than create a non-factual answer.
 
 ## Features
 
