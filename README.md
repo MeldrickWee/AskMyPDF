@@ -89,7 +89,7 @@ Open your web browser and navigate to the URL displayed in your terminal, usuall
 Type your OpenAI API key into the input field, which is masked for security purposes. The API key is never
 saved. However, it is recommended that you still deactivate and delete the key from your OpenAI account after 
 trying out the app. 
-Your OpenAI account needs to have a payment method entered or you will run into a ratelimit error since every
+Your OpenAI account needs to have a payment method entered or you will run into a rate limit error since every
 API request is charged at $0.002 per 1k tokens.
 
 ### 4. Adjust the temperature value (optional)
