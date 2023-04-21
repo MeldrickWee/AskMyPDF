@@ -35,9 +35,21 @@ and the chat history used for context (if option is chosen)
 
 ## Risks
 
-- too reliant on chatgpt
-- cant ask questions when you dont know whats the book about
-- bad at math
+- Reliance on OpenAI's API: 
+
+  The project heavily depends on OpenAI's API to function, which means that users are at the mercy of any potential changes to the API's cost or availability. If OpenAI decides to change their pricing structure or impose limitations, it could significantly impact the usability and affordability of the script.
+
+- Difficulty in asking questions without prior knowledge of the content: 
+
+  Since users need to provide a specific question to retrieve an answer, it can be challenging to ask meaningful questions if they don't have any prior knowledge of the content. This limitation might make it difficult for users to discover valuable information in the document.
+
+- Potential inaccuracies: 
+
+  The AI may not always provide accurate results, as demonstrated by the example of miscalculating the number of editors. Users should be cautious when relying on the script's answers and might need to verify the information independently.
+
+- Dependence on well-tuned prompt templates: 
+
+  The script relies heavily on the proper tuning of prompt templates to generate meaningful answers. This tuning process can be complex, and it might be possible to miss edge cases or create templates that produce less-than-ideal results. This shortcoming could lead to less accurate or less relevant answers, which may require additional manual intervention or refinement.
 
 ## Potential Improvements
 
