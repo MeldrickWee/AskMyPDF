@@ -13,7 +13,7 @@ This project allows users to ask questions and receive answers based on the AI P
 This project was built in Python 3 with LangChain and deployed with Streamlit.
 The AI Practitioner Handbook was created by AI Engineers at AI Singapore.
 
-The underlying large language model (LLM) implemented for this question and answer task is ChatGPT 3.5 Turbo (OpenAI). 
+The underlying large language model (LLM) implemented for this Q & A task is ChatGPT 3.5 Turbo (OpenAI). 
 During Q & A, the LLM is able to answer user questions in context of the AI Practitioner Handbook.
 By iteratively experimenting with tuning the prompt templates, the LLM does not hallucinate when answering. It generates answers
 only when it has the proper sources found from the book. When questions asked are not in the context of the book, 
