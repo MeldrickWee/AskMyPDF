@@ -25,7 +25,7 @@ the LLM replies "I don't know".
 
 ## Features
 
-- Input for OpenAI API key which is never saved for security reasons
+- Input for your OpenAI API key (never saved for security reasons)
 - Customizable temperature value for controlling randomness in AI-generated responses
 - Option to remember chat history for context-aware responses
 - Predefined questions available in a dropdown menu
@@ -35,9 +35,21 @@ and the chat history used for context (if option is chosen)
 
 ## Risks
 
-- too reliant on chatgpt
-- cant ask questions when you dont know whats the book about
-- bad at math
+- Reliance on OpenAI's API: 
+
+  The project heavily depends on OpenAI's API to function, which means that users are at the mercy of any potential changes to the API's cost or availability. If OpenAI decides to change their pricing structure or impose limitations, it could significantly impact the usability and affordability of the script.
+
+- Difficulty in asking questions without prior knowledge of the content: 
+
+  Since users need to provide a specific question to retrieve an answer, it can be challenging to ask meaningful questions if they don't have any prior knowledge of the content. This limitation might make it difficult for users to discover valuable information in the document.
+
+- Potential inaccuracies: 
+
+  The AI may not always provide accurate results, as demonstrated by the example of miscalculating the number of editors. Users should be cautious when relying on the script's answers and might need to verify the information independently.
+
+- Dependence on well-tuned prompt templates: 
+
+  The script relies heavily on the proper tuning of prompt templates to generate meaningful answers. This tuning process can be complex, and it might be possible to miss edge cases or create templates that produce less-than-ideal results. This shortcoming could lead to less accurate or less relevant answers, which may require additional manual intervention or refinement.
 
 ## Potential Improvements
 
@@ -46,56 +58,57 @@ and the chat history used for context (if option is chosen)
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your_username/your_repository.git
+git clone https://github.com/MeldrickWee/AskMyPDF.git
 ```
 
-### 2. Set up a virtual environment (optional but recommended)
+### 2. Set up a virtual environment "questionanswer" with dependencies installed
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use "venv\Scripts\activate"
-```
-
-### 3. Install the dependencies
-
-```bash
-pip install -r requirements.txt
+conda create --name questionanswer --file requirements.txt
 ```
 
 ## Usage
 
-### 1. Run the Streamlit app
+### 1. Run the Streamlit app from terminal (Local Deployment Only)
 
 ```bash
-streamlit run app.py
+streamlit run src/main.py
 ```
 
-### 2. Open the app in your web browser
+### 2. Open the app in your web browser (Local Deployment Only)
 
 Open your web browser and navigate to the URL displayed in your terminal, usually `http://localhost:8501`.
 
 ### 3. Enter your OpenAI API key
 
-Type your OpenAI API key into the text input field, which is masked for security purposes.
+Type your OpenAI API key into the input field, which is masked for security purposes. The API key is never
+saved. However, it is recommended that you still deactivate and delete the key from your OpenAI account after 
+trying out the app. 
+Your OpenAI account needs to have a payment method entered or you will run into a ratelimit error since every
+API request is charged at $0.002 per 1k tokens.
 
-### 4. Select a predefined question or enter a custom question
+### 4. Adjust the temperature value (optional)
 
-Choose a question from the dropdown menu or type a custom question into the input box.
+Use the slider to adjust the temperature value, which controls the randomness in AI-generated responses. Spans from most
+deterministic to most creative reply.
 
 ### 5. Enable the memory feature (optional)
 
-Check the "Remember chat history" checkbox if you want the AI to remember the context of previous conversations.
+Check the "Yes" button if you want the AI to remember the context of previous conversations.
 
-### 6. Adjust the temperature value (optional)
+### 6. Select a predefined question or enter a custom question
 
-Use the slider to adjust the temperature value, which controls the randomness in AI-generated responses.
+Choose a question from the dropdown menu or type a custom question into the input box.
 
 ### 7. View the AI-generated answer
 
-The answer to your question will be displayed below the input fields.
+The answer to your question will be displayed in the "Answer" tab. The source evidence that are referred to by the AI before
+answering are displayed in the "Source" tab. If you have selected "Yes" for chat history, the previous conversations between you and
+the AI that were used to generate context-aware answers are displayed in the "Memory" tab.
 
+## Citations
+```bash
+@book{aisg_aiprac_hbook, author={AISingapore}, title={AIPractitionerHandbook}, howpublished={\url{https://aisingapore.github.io/ai-practitioner-handbook/}}, year={2023}}
+```
 ---
 
-Please note that this app requires an OpenAI API key to function. Make sure to provide a valid key when using the app.
-
-Feel free to customize and extend the app as needed. If you encounter any issues or have suggestions, please open an issue or submit a pull request.
