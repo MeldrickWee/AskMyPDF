@@ -3,5 +3,9 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - langchain==0.0.144
-  - streamlit==1.21.0
+  - python=3.8.15
+  - pip=22.2.2
+
+  -pip:
+    - langchain==0.0.144
+    - streamlit==1.21.0
