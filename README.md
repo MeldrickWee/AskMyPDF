@@ -4,9 +4,10 @@
 The link to the deployed Streamlit app is: https://meldrickwee-askmypdf-srcmain-1ni4g8.streamlit.app/
 
 TODO: Add explanation of the langchain workflow behind the scenes
+
 TODO: Screen record of using the app
-TODO: Include in usage that a paid OpenAI account is requried to play with the app
-TODO: Write the risks, potential improvements, installation and usage guide
+
+TODO: Write the potential improvements to app
 ---
 
 This project allows users to ask questions and receive answers based on the AI Practitioner Handbook.
