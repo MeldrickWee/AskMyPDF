@@ -94,5 +94,9 @@ The answer to your question will be displayed in the "Answer" tab. The source ev
 answering are displayed in the "Source" tab. If you have selected "Yes" for chat history, the previous conversations between you and
 the AI that were used to generate context-aware answers are displayed in the "Memory" tab.
 
+## Citations
+```bash
+@book{aisg_aiprac_hbook, author={AISingapore}, title={AIPractitionerHandbook}, howpublished={\url{https://aisingapore.github.io/ai-practitioner-handbook/}}, year={2023}}
+```
 ---
 
