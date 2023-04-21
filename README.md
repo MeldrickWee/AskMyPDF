@@ -69,13 +69,13 @@ conda create --name questionanswer --file requirements.txt
 
 ## Usage
 
-### 1. Run the Streamlit app from terminal (Local Deployment Only)
+### 1. Run the Streamlit app from terminal (Local Host Only)
 
 ```bash
 streamlit run src/main.py
 ```
 
-### 2. Open the app in your web browser (Local Deployment Only)
+### 2. Open the app in your web browser (Local Host Only)
 
 Open your web browser and navigate to the URL displayed in your terminal, usually `http://localhost:8501`.
 
