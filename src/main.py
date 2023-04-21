@@ -2,8 +2,6 @@ import streamlit as st
 
 from query_processor import process_query
 
-# TODO: Add memory functionality to the app
-
 # Check if the chat_history state is initialized
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
@@ -46,9 +44,11 @@ if selected_option == "Enter your question":
 else:
     custom_question = ""
 
+
 # submit button actions
 if st.button("Submit"):
     if api_key:
+        # Check if the user has entered a question or selected a pre-defined one
         if custom_question:
             question = custom_question
         elif selected_option != "Enter your question":
@@ -57,11 +57,30 @@ if st.button("Submit"):
             st.write("Please select a question or enter a custom question.")
             question = None
 
-        if question:
+        # Check if the user has selected the memory checkbox
+        if memory == "Yes":
+            # Create containers for the answer, chat history, and source documents
+            tab1, tab2, tab3 = st.tabs(["Answer", "Source", "Memory"])
             path = "data/vector_data/"
-            answer = process_query(api_key=api_key, question=question, path=path, temp_val=temperature, memory=memory, chat_history=st.session_state.chat_history)
-            st.write(answer)
+            result = process_query(api_key=api_key, question=question, path=path, temp_val=temperature, memory=memory, chat_history=st.session_state.chat_history)
+            with tab1:
+                st.write(result['answer'])
+            with tab2:
+                st.write(result['source_documents'])
+            with tab3:
+                st.write(result['chat_history'])
+
+        elif memory == "No":
+            # Create containers for the answer, chat history, and source documents
+            tab1, tab2, tab3 = st.tabs(["Answer", "Source", "Memory"])
+            path = "data/vector_data/"
+            result = process_query(api_key=api_key, question=question, path=path, temp_val=temperature, memory=memory)
+            with tab1:
+                st.write(result['answer'])
+            with tab2:
+                st.write(result['source_documents'])
+            with tab3:
+                st.write("Memory not activated. There is no chat history to display.")
 
     else:
         st.write("Please provide your API key.")
-
