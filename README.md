@@ -8,6 +8,7 @@ TODO: Add explanation of the langchain workflow behind the scenes
 TODO: Screen record of using the app
 
 TODO: Write the potential improvements to app
+
 ---
 
 This project allows users to ask questions and receive answers based on the AI Practitioner Handbook.
