@@ -26,7 +26,7 @@ ultimately enhancing the user experience and the usefulness of the Q&A tool.
 
 The AI Practitioner Handbook was first converted from a PDF file into embeddings with OpenAIEmbeddings (OpenAI), 
 which cost approximately $0.077 for 91 pages of text content. Using FAISS (Facebook), the embeddings were saved 
-locallyas a vector store for efficient similarity search.
+locally as a vector store for efficient similarity search.
 
 ## Features
 
