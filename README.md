@@ -46,56 +46,52 @@ and the chat history used for context (if option is chosen)
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your_username/your_repository.git
+git clone https://github.com/MeldrickWee/AskMyPDF.git
 ```
 
-### 2. Set up a virtual environment (optional but recommended)
+### 2. Set up a virtual environment "questionanswer" with dependencies installed
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use "venv\Scripts\activate"
-```
-
-### 3. Install the dependencies
-
-```bash
-pip install -r requirements.txt
+conda create --name questionanswer --file requirements.txt
 ```
 
 ## Usage
 
-### 1. Run the Streamlit app
+### 1. Run the Streamlit app from terminal (Local Deployment Only)
 
 ```bash
-streamlit run app.py
+streamlit run src/main.py
 ```
 
-### 2. Open the app in your web browser
+### 2. Open the app in your web browser (Local Deployment Only)
 
 Open your web browser and navigate to the URL displayed in your terminal, usually `http://localhost:8501`.
 
 ### 3. Enter your OpenAI API key
 
-Type your OpenAI API key into the text input field, which is masked for security purposes.
+Type your OpenAI API key into the input field, which is masked for security purposes. The API key is never
+saved. However, it is recommended you still deactivate and delete the key from your OpenAI account after trying out the app. 
+Your OpenAI account needs to have a payment method entered or you will run into a ratelimit error since every
+API request is charged at $0.002 per 1k tokens.
 
-### 4. Select a predefined question or enter a custom question
+### 4. Adjust the temperature value (optional)
 
-Choose a question from the dropdown menu or type a custom question into the input box.
+Use the slider to adjust the temperature value, which controls the randomness in AI-generated responses. Spans from most
+deterministic to most creative reply.
 
 ### 5. Enable the memory feature (optional)
 
-Check the "Remember chat history" checkbox if you want the AI to remember the context of previous conversations.
+Check the "Remember chat history" button if you want the AI to remember the context of previous conversations.
 
-### 6. Adjust the temperature value (optional)
+### 6. Select a predefined question or enter a custom question
 
-Use the slider to adjust the temperature value, which controls the randomness in AI-generated responses.
+Choose a question from the dropdown menu or type a custom question into the input box.
 
 ### 7. View the AI-generated answer
 
-The answer to your question will be displayed below the input fields.
+The answer to your question will be displayed in the "Answer" tab. The evidence sources that were referred to by the AI before
+answering are displayed in the "Source" tab. If you have selected "Yes" for chat history, the previous conversations between you and
+the AI that were used to generate context-aware answers are displayed in the "Memory" tab.
 
 ---
 
-Please note that this app requires an OpenAI API key to function. Make sure to provide a valid key when using the app.
-
-Feel free to customize and extend the app as needed. If you encounter any issues or have suggestions, please open an issue or submit a pull request.
