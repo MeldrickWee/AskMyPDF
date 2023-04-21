@@ -37,7 +37,7 @@ and the chat history used for context (if option is chosen)
 
 - Reliance on OpenAI's API: 
 
-  The project heavily depends on OpenAI's API to function, which means that users are at the mercy of any potential changes to the API's cost or availability. If OpenAI decides to change their pricing structure or impose limitations, it could significantly impact the usability and affordability of the script.
+  This project heavily depends on OpenAI's API to function, which means that users are at the mercy of any potential changes to the API's cost or availability. If OpenAI decides to change their pricing structure or impose limitations, it could significantly impact the usability and affordability of the script.
 
 - Difficulty in asking questions without prior knowledge of the content: 
 
