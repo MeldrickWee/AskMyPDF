@@ -14,7 +14,7 @@ This project was built in Python 3 with LangChain and deployed with Streamlit.
 The AI Practitioner Handbook was created by AI Engineers at AI Singapore.
 
 The AI Practitioner Handbook was first converted from a PDF file into embeddings with OpenAIEmbeddings (OpenAI), 
-which cost approximately $0.077. Using FAISS (Facebook), the embeddings are saved as a vector store for 
+which cost approximately $0.077 for 91 pages of text content. Using FAISS (Facebook), the embeddings are saved as a vector store for 
 efficient similaritY search.
 
 The underlying large language model (LLM) implemented for the question and answer task is ChatGPT 3.5 Turbo (OpenAI). 
