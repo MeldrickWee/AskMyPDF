@@ -70,7 +70,8 @@ Open your web browser and navigate to the URL displayed in your terminal, usuall
 ### 3. Enter your OpenAI API key
 
 Type your OpenAI API key into the input field, which is masked for security purposes. The API key is never
-saved. However, it is recommended you still deactivate and delete the key from your OpenAI account after trying out the app. 
+saved. However, it is recommended that you still deactivate and delete the key from your OpenAI account after 
+trying out the app. 
 Your OpenAI account needs to have a payment method entered or you will run into a ratelimit error since every
 API request is charged at $0.002 per 1k tokens.
 
@@ -81,7 +82,7 @@ deterministic to most creative reply.
 
 ### 5. Enable the memory feature (optional)
 
-Check the "Remember chat history" button if you want the AI to remember the context of previous conversations.
+Check the "Yes" button if you want the AI to remember the context of previous conversations.
 
 ### 6. Select a predefined question or enter a custom question
 
