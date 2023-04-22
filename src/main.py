@@ -16,7 +16,8 @@ api_key = st.text_input("Enter your OpenAI API key:", type="password")
 st.markdown("<p style='font-size: 12px;'>This API key is never saved. You can get your API key from <a href='https://platform.openai.com/account/api-keys'>here</a>.</p><br />", unsafe_allow_html=True)
 
 # Add a slider for the temperature value
-temperature = st.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+temperature = st.slider("Temperature:", min_value=0.0,
+                        max_value=1.0, value=0.5, step=0.01)
 
 # Addtional info for temperature
 st.markdown("<p style='font-size: 12px;'>From most deterministic to most creative reply.</p><br />", unsafe_allow_html=True)
@@ -30,8 +31,8 @@ dropdown_options = [
     "Who are the contributors to this book?",
     "What is the job of an AI engineer?",
     "What is a technical lead?",
-    "What are the various data splitting strategies?",
-    "Is Bruce Wayne the real Batman?",
+    "Why do AI projects fail?",
+    "Is Bruce Wayne really the Batman?",
 ]
 # dropdown box selection
 selected_option = st.selectbox(
