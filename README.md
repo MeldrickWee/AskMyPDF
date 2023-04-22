@@ -25,8 +25,12 @@ This approach ensures that the generated answers are as accurate and relevant as
 ultimately enhancing the user experience and the usefulness of the Q&A tool.
 
 The AI Practitioner Handbook was first converted from a PDF file into embeddings with OpenAIEmbeddings (OpenAI), 
-which cost approximately $0.086 for 94 pages of text content. Using FAISS, developed by Facebook, the embeddings 
-were saved locally as a vector store for efficient similarity search.
+which cost approximately $0.086 for 94 pages of text content. An embedding can be thought of as an information dense
+representation of a string of text. The information captured refers to the semantic and syntatic meanings when words are
+used to form a coherent sentence. Such embeddings are in the form of a vector of numbers represented in the same
+latent space. By residing in the same latent space, the distance between embeddings can be understood as an indication of 
+their semantic similarity or dissimilarity. Using FAISS, developed by Facebook, the embeddings were saved locally as a 
+vector store for efficient similarity search.
 
 ## Features
 
