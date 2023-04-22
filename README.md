@@ -3,11 +3,7 @@
 
 The link to the deployed Streamlit app is: https://meldrickwee-askmypdf-srcmain-1ni4g8.streamlit.app/
 
-TODO: Add explanation of the langchain workflow behind the scenes
-
 TODO: Screen record of using the app
-
-TODO: Write the potential improvements to app
 
 ---
 
@@ -29,8 +25,24 @@ which cost approximately $0.086 for 94 pages of text content. An embedding can b
 representation of a string of text. The information captured refers to the semantic and syntatic meanings when words are
 used to form a coherent sentence. Such embeddings are in the form of a vector of numbers represented in the same
 latent space. By residing in the same latent space, the distance between embeddings can be understood as an indication of 
-their semantic similarity or dissimilarity. Using FAISS, developed by Facebook, the embeddings were saved locally as a 
-vector store for efficient similarity search.
+their semantic similarity or dissimilarity. Using Facebook AI Similarity Search (FAISS), developed by Facebook, the 
+embeddings were indexed and saved locally as a vector store for efficient similarity search.
+
+The first and most basic implementation of the Q&A task in this project is with the RetrievalQAWithSourcesChain class. 
+This class is known as a "chain" which allows for question and answering over an index. The chain takes an input question and 
+retrieves the most semantically relevant pieces of text (sources). The chain then passes the question and sources within a 
+prompt template into the LLM. The LLM is able to generate a coherent answer for the user.
+
+The second more complex implementation is using the ConversationalRetrievalChain class. The basic workings of this chain is the same
+as the first implementation. However, it is interesting that this particular chain allows the LLM the ability to "remember" previous 
+questions that were asked by the user. Therefore, the LLM is able to generate context-aware answers based on chat history. 
+For example, when the question "What is the job of an AI engineer?" is asked, the LLM may reply "According to the context provided, 
+an AI engineer is responsible for building and delivering AI projects on time and on target  by building an effective AI development team.". 
+The user can then ask "How does he/she build an effective team?". The LLM is able to be aware that "he/she" is referring to the noun
+"AI engineer" asked in the first question when generating its response.
+
+During the development of this project, 
+
 
 ## Features
 
