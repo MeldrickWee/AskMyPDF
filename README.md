@@ -12,7 +12,7 @@ TODO: Write the potential improvements to app
 ---
 
 This project allows users to ask questions and receive answers based on the AI Practitioner Handbook.
-This project was built in Python 3 with LangChain and deployed with Streamlit.
+This project was developed in Python 3 with LangChain and deployed with Streamlit.
 The AI Practitioner Handbook was created by AI Engineers at AI Singapore.
 
 The underlying large language model (LLM) utilized for this Q&A task is ChatGPT 3.5 Turbo, developed by OpenAI. 
