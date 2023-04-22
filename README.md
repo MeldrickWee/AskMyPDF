@@ -41,8 +41,11 @@ an AI engineer is responsible for building and delivering AI projects on time an
 The user can then ask "How does he/she build an effective team?". The LLM is able to be aware that "he/she" is referring to the noun
 "AI engineer" asked in the first question when generating its response.
 
-During the development of this project, 
-
+While working on this project, my most significant takeaway involved gaining proficiency in the LangChain framework and recognizing the 
+crucial role of prompt templates. LangChain streamlines the substantial engineering effort needed when employing LLMs, 
+particularly for targeted business use cases. However, there are still many aspects of LangChain, such as agents, that warrant further 
+exploration. The importance of prompt templates is paramount when creating applications with LLMs. A considerable amount of time was 
+dedicated to refining the prompt templates to minimize the model's generation of irrelevant or hallucinated responses.
 
 ## Features
 
@@ -74,9 +77,17 @@ and the chat history used for context (if option is chosen)
 
 ## Potential Improvements
 
-- After having a bunch of conversation with memory, ability to ask it to summarise everything discussed.
-- Using agents to allow the LLM to access outside tools to enhance its answers
-- Expand to not only the AI Practioner handbook, but also the rest of AI Singapore's website and all resources within the website
+- Summarizing discussed content with memory enabled:
+   To improve the user experience and provide a comprehensive understanding of the conversation, incorporate a feature that allows the LLM to summarize all the topics discussed so far. With summarization enabled, the LLM can keep track of the conversation history and generate a concise summary upon request, helping users recall important points and maintain context throughout the interaction.
+
+- Utilizing agents for accessing external tools:
+   Enhance the capabilities of the LLM by integrating agents that can access external tools and resources. These agents can assist the LLM in gathering relevant information or performing specific tasks beyond its innate knowledge, ultimately providing more accurate and useful answers. For example, an agent could fetch real-time data from an API or interact with a third-party service to offer a more informed response.
+
+- Expanding the knowledge base to AI Singapore's entire website:
+   To broaden the scope of the LLM's expertise, extend its knowledge base to encompass not only the AI Practitioner Handbook but also the entirety of AI Singapore's website and its associated resources. By doing so, the LLM can provide more comprehensive and diverse information, ensuring users receive well-rounded support across various AI-related topics.
+
+- Scaling and productionalizing with Pinecone:
+   To effectively scale and productionalize the LLM, consider leveraging Pinecone, a managed vector database service that enables fast and scalable similarity search. Pinecone can help optimize the LLM's performance by efficiently managing embeddings and handling large-scale data. With Pinecone, the LLM can deliver fast, accurate, and scalable responses, ensuring a seamless experience for users in a production environment.
 
 ## Installation
 
