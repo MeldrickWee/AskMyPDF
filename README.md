@@ -66,10 +66,18 @@ and the chat history used for context (if option is chosen)
 git clone https://github.com/MeldrickWee/AskMyPDF.git
 ```
 
-### 2. Set up a virtual environment "questionanswer" with dependencies installed
+### 2. Set up a conda environment "questionanswer" with dependencies installed
 
 ```bash
-conda create --name questionanswer --file requirements.txt
+conda create --name questionanswer python=3.9
+```
+
+```bash
+conda activate questionanswer
+```
+
+```bash
+pip install requirements.txt
 ```
 
 ## Usage
