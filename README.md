@@ -3,8 +3,6 @@
 
 The link to the deployed Streamlit app is: https://meldrickwee-askmypdf-srcmain-1ni4g8.streamlit.app/
 
-TODO: Screen record of using the app
-
 ---
 
 This project allows users to ask questions and receive answers based on the AI Practitioner Handbook.
@@ -44,8 +42,13 @@ The user can then ask "How does he/she build an effective team?". The LLM is abl
 While working on this project, my most significant takeaway involved gaining proficiency in the LangChain framework and recognizing the 
 crucial role of prompt templates. LangChain streamlines the substantial engineering effort needed when employing LLMs, 
 particularly for targeted business use cases. However, there are still many aspects of LangChain, such as agents, that warrant further 
-exploration. The importance of prompt templates is paramount when creating applications with LLMs. A considerable amount of time was 
-dedicated to refining the prompt templates to minimize the model's generation of irrelevant or hallucinated responses.
+exploration. 
+
+The significance of prompt templates cannot be overstated when developing applications with LLMs. Throughout this project's 
+development, substantial effort was invested in fine-tuning the prompt templates to reduce the likelihood of the model producing irrelevant 
+or hallucinated responses. Nevertheless, the current templates occasionally still lead to confusion for the LLM, particularly when conversation 
+history is enabled and the chat history grows longer. At times, the LLM struggles to discern which portion of the chat history a new question
+relates to, resulting in the model mistakenly assuming that the query is unrelated to the PDF document and consequently withholding a response.
 
 ## Features
 
@@ -92,6 +95,10 @@ and the chat history used for context (if option is chosen)
 - Scaling and productionalizing with Pinecone:
 
    To effectively scale and productionalize the LLM, consider leveraging Pinecone, a managed vector database service that enables fast and scalable similarity search. Pinecone can help optimize the LLM's performance by efficiently managing embeddings and handling large-scale data. With Pinecone, the LLM can deliver fast, accurate, and scalable responses, ensuring a seamless experience for users in a production environment.
+   
+- Enhancing the prompt templates:
+
+  Additional time and experimentation are necessary to refine and optimize the prompt templates for the specific use case of Q&A based on the AI Practitioner Handbook. If the knowledge base expands to encompass the entire AI Singapore website and its associated resources, the effort required to create highly tailored prompt templates will grow significantly. This meticulous crafting process is essential for ensuring accurate and relevant responses from the LLM, ultimately providing users with a more effective and reliable experience.
 
 ## Installation
 
