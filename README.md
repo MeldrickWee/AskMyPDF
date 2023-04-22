@@ -62,6 +62,10 @@ and the chat history used for context (if option is chosen)
 
 ## Potential Improvements
 
+- After having a bunch of conversation with memory, ability to ask it to summarise everything discussed.
+- Using agents to allow the LLM to access outside tools to enhance its answers
+- Expand to not only the AI Practioner handbook, but also the rest of AI Singapore's website and all resources within the website
+
 ## Installation
 
 ### 1. Clone the repository
