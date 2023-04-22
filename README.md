@@ -12,7 +12,7 @@ TODO: Write the potential improvements to app
 ---
 
 This project allows users to ask questions and receive answers based on the AI Practitioner Handbook.
-This project was built in Python 3 with LangChain and deployed with Streamlit.
+This project was developed in Python 3 with LangChain and deployed with Streamlit.
 The AI Practitioner Handbook was created by AI Engineers at AI Singapore.
 
 The underlying large language model (LLM) utilized for this Q&A task is ChatGPT 3.5 Turbo, developed by OpenAI. 
@@ -25,7 +25,7 @@ This approach ensures that the generated answers are as accurate and relevant as
 ultimately enhancing the user experience and the usefulness of the Q&A tool.
 
 The AI Practitioner Handbook was first converted from a PDF file into embeddings with OpenAIEmbeddings (OpenAI), 
-which cost approximately $0.077 for 91 pages of text content. Using FAISS, developed by Facebook, the embeddings 
+which cost approximately $0.086 for 94 pages of text content. Using FAISS, developed by Facebook, the embeddings 
 were saved locally as a vector store for efficient similarity search.
 
 ## Features
@@ -66,10 +66,18 @@ and the chat history used for context (if option is chosen)
 git clone https://github.com/MeldrickWee/AskMyPDF.git
 ```
 
-### 2. Set up a virtual environment "questionanswer" with dependencies installed
+### 2. Set up a conda environment "questionanswer" with dependencies installed
 
 ```bash
-conda create --name questionanswer --file requirements.txt
+conda create --name questionanswer python=3.9
+```
+
+```bash
+conda activate questionanswer
+```
+
+```bash
+pip install requirements.txt
 ```
 
 ## Usage
