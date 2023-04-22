@@ -78,15 +78,19 @@ and the chat history used for context (if option is chosen)
 ## Potential Improvements
 
 - Summarizing discussed content with memory enabled:
+
    To improve the user experience and provide a comprehensive understanding of the conversation, incorporate a feature that allows the LLM to summarize all the topics discussed so far. With summarization enabled, the LLM can keep track of the conversation history and generate a concise summary upon request, helping users recall important points and maintain context throughout the interaction.
 
 - Utilizing agents for accessing external tools:
+
    Enhance the capabilities of the LLM by integrating agents that can access external tools and resources. These agents can assist the LLM in gathering relevant information or performing specific tasks beyond its innate knowledge, ultimately providing more accurate and useful answers. For example, an agent could fetch real-time data from an API or interact with a third-party service to offer a more informed response.
 
 - Expanding the knowledge base to AI Singapore's entire website:
+
    To broaden the scope of the LLM's expertise, extend its knowledge base to encompass not only the AI Practitioner Handbook but also the entirety of AI Singapore's website and its associated resources. By doing so, the LLM can provide more comprehensive and diverse information, ensuring users receive well-rounded support across various AI-related topics.
 
 - Scaling and productionalizing with Pinecone:
+
    To effectively scale and productionalize the LLM, consider leveraging Pinecone, a managed vector database service that enables fast and scalable similarity search. Pinecone can help optimize the LLM's performance by efficiently managing embeddings and handling large-scale data. With Pinecone, the LLM can deliver fast, accurate, and scalable responses, ensuring a seamless experience for users in a production environment.
 
 ## Installation
