@@ -80,17 +80,34 @@ def process_query(
 
     else:
         # Remembers the context of the previous conversation, memory == "Yes"
-        memory_template = """Given the following chat history and a follow up question, rephrase the\
+        memory_template = """
+        Given the following chat history and a follow up question, rephrase the\
         follow up question to be a standalone question.\
-        You can assume the question to be in the context of the AI Practioner Handbook.\
-        The follow up question may or may not always be about the chat history.\
-        If you don't know the answer, just say that "I don't know", don't try to make up an answer.\
-        If the question is not related to the AI Practitioner Handbook, just say that "I don't know".\
+        The follow up question may not always be based on the chat history.\
+        If follow up question is not based on the chat history, do not rephrase it.\
+        If follow up question is not based on the chat history, you should still answer it\
+        in the context of the AI Practitioner Handbook.\
+        If the question is not in the context of AI Practitioner Handbook, just say that "I don't know".\
         Chat History:{chat_history}\
-        Follow Up Input: {question}\
-        Standalone question:"""
+        Follow Up Question: {question}\
+        Standalone Question:
+        """
 
         CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(memory_template)
+
+        template = """You are an AI assistant for answering questions about the AI Practitioner Handbook.\
+        You are given the following extracted parts of a long document and a question.\
+        Provide a conversational answer.\
+        If you don't know the answer, just say "I don't know". Don't try to make up an answer.\
+        If the question is not about the AI Practitioner Handbook, just say that "I don't know".
+        Question: {question}
+        =========
+        {context}
+        =========
+        Answer:
+        """
+        QA_PROMPT = PromptTemplate(template=template, input_variables=[
+                                   "question", "context"])
 
         llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=temp_val, openai_api_key=api_key)
 
@@ -99,7 +116,9 @@ def process_query(
             retriever=vector_store.as_retriever(),
             chain_type="stuff",
             return_source_documents=True,
-            condense_question_prompt=CONDENSE_QUESTION_PROMPT
+            condense_question_prompt=CONDENSE_QUESTION_PROMPT,
+            qa_prompt=QA_PROMPT,
+            output_key="answer",
         )
 
         result = chain({"question": question, "chat_history": chat_history})
