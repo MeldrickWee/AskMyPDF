@@ -5,6 +5,11 @@ The link to the deployed Streamlit app is: https://meldrickwee-askmypdf-srcmain-
 
 ---
 
+## Video Demo:
+https://user-images.githubusercontent.com/65950273/235050006-6e626b91-e0b0-4666-b1a6-fb46fe59acc1.mp4
+
+---
+
 This project allows users to ask questions and receive answers based on the AI Practitioner Handbook.
 This project was developed in Python 3 with LangChain and deployed with Streamlit.
 The AI Practitioner Handbook was created by AI Engineers at AI Singapore.
