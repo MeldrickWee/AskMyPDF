@@ -124,7 +124,7 @@ conda activate questionanswer
 ```
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
